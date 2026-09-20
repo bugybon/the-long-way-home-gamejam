@@ -90,7 +90,6 @@ horizontal_alignment = 1
 layout_mode = 1
 
 [node name="Settings" parent="." unique_id=816576691 instance=ExtResource("5_rivkh")]
-visible = false
 layout_mode = 1
 
 [node name="TextureRectBackGround" type="TextureRect" parent="." unique_id=2073422959]
