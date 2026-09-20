@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ddye1msqvpgfc"]
 
 [ext_resource type="Texture2D" uid="uid://lhu5m2aou8v6" path="res://icon.svg" id="1_vde4u"]
-[ext_resource type="Script" uid="uid://cvp8b4mi3sim4" path="res://night/objects/melee_weapon_dummy.gd" id="1_wyvfl"]
+[ext_resource type="Script" uid="uid://cvp8b4mi3sim4" path="res://night/scripts/melee_weapon_dummy.gd" id="1_wyvfl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8321d"]
 size = Vector2(12, 12)
@@ -137,3 +137,5 @@ disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1465836744]
 libraries/ = SubResource("AnimationLibrary_ndpr5")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

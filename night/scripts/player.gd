@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends CombatEntity
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var weapons: Node = $Weapons
@@ -10,6 +10,7 @@ var direction = "front"
 var state = "idle"
 
 func _ready() -> void:
+	current_health = max_health
 	for attack in attacks.get_children():
 		attack_directions[attack.name] = attack
 
@@ -33,7 +34,7 @@ func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down").normalized()
 	velocity = input_direction * speed
 	transform_direction(input_direction)
-	print(input_direction, state + "_" + direction)
+	#print(input_direction, state + "_" + direction)
 	#animated_sprite_2d.play(state + "_" + direction)
 	weapons.rotation = weapons.global_position.angle_to_point(attack_directions[direction].global_position)
 
@@ -43,8 +44,3 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("attack"):
 		weapons.get_children().map(func (el): el.attack_animation())
-		
-
-
-func _on_melee_weapon_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dn3xc0dryuqa"]
 
 [ext_resource type="Texture2D" uid="uid://lhu5m2aou8v6" path="res://icon.svg" id="1_r5mo1"]
+[ext_resource type="Script" uid="uid://dke2lthgfly7l" path="res://night/scripts/training_dummy.gd" id="1_y1gpb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8321d"]
 radius = 2.0
@@ -10,8 +11,11 @@ height = 14.0
 size = Vector2(14, 14)
 
 [node name="Dummy" type="CharacterBody2D" unique_id=1019805022]
+script = ExtResource("1_y1gpb")
+max_health = 999999
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=684350801]
+modulate = Color(1, 1, 0, 1)
 position = Vector2(1.4901161e-08, -7)
 scale = Vector2(0.10703125, 0.10703125)
 texture = ExtResource("1_r5mo1")
