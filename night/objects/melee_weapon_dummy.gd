@@ -1,0 +1,5 @@
+extends Area2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+func attack_animation() -> void:
+	animation_player.play("attack")
