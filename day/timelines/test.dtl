@@ -1,0 +1,6 @@
+[background arg="res://icon.svg" fade="1.0" wait="true"]
+join main center
+- to be
+	main: yippie
+- not to be
+	main: ded
