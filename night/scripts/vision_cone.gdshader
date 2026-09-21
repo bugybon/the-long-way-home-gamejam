@@ -9,7 +9,7 @@ uniform float little_circle_radius: hint_range(0.0, 1.0) = 0.1; // Radius of the
 uniform float inner_circle_alpha: hint_range(0.0, 1.0) = 0.1; // Alpha of the circular mask
 uniform float outline_thickness: hint_range(0.0, 0.1) = 0.015; // Thickness of the outline
 uniform vec4 custom_color: source_color = vec4(1.0, 1.0, 1.0, 1.0); // Customizable color
-uniform vec4 custom_background_color: source_color = vec4(1.0, 1.0, 1.0, 1.0); // Customizable color
+uniform vec4 custom_background_color: source_color = vec4(0.0, 0.0, 0.0, 0.0); // Customizable color
 uniform float background_alpha: hint_range(0.0, 1.0) = 0.1; // Alpha of the circular mask
 uniform float cone_scale = 1.0; // Scaling factor, I don't recommed setting a value lower than 0.1
 
@@ -60,11 +60,17 @@ void fragment() {
     vec4 outline_color = vec4(custom_color.rgb, combined_outline * fade * within_cone * within_circle); // Custom color outline
 
     // Combine color and outline
-    COLOR = mix(color, outline_color, outline_color.a);
 	
 	vec4 bg_color = vec4(custom_background_color.rgb, background_alpha * (1.0 - within_cone) * within_circle + background_alpha * (1.0-within_circle) - background_alpha * within_little_circle); // Custom color
     //vec4 outline_color = vec4(custom_color.rgb, combined_outline * fade * within_cone * within_circle); // Custom color outline
 
-    // Combine color and outline
-    COLOR = mix(bg_color, outline_color, outline_color.a);
+    vec4 fg_color = mix(color, outline_color, outline_color.a);
+    
+	// Premultiply both by their own alpha before adding
+	vec3 combined_rgb = bg_color.rgb * bg_color.a + fg_color.rgb * fg_color.a;
+	float combined_a = bg_color.a + fg_color.a;
+
+	// Un-premultiply for final output (avoid divide-by-zero where nothing is present)
+	COLOR = vec4(combined_rgb / max(combined_a, 0.0001), clamp(combined_a, 0.0, 1.0));
+	
 }
