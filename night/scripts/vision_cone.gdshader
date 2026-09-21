@@ -5,9 +5,12 @@ uniform float cone_angle: hint_range(0.1, 360.0) = 90; // Angle in degrees
 uniform float start_angle: hint_range(0.0, 360.0) = 270.0; // Start angle in degrees
 uniform float fade_intensity: hint_range(0.0, 4.0) = 3.0; // Controls fade strength
 uniform float circle_radius: hint_range(0.0, 1.0) = 0.5; // Radius of the circular mask
+uniform float little_circle_radius: hint_range(0.0, 1.0) = 0.1; // Radius of the circular mask
 uniform float inner_circle_alpha: hint_range(0.0, 1.0) = 0.1; // Alpha of the circular mask
 uniform float outline_thickness: hint_range(0.0, 0.1) = 0.015; // Thickness of the outline
 uniform vec4 custom_color: source_color = vec4(1.0, 1.0, 1.0, 1.0); // Customizable color
+uniform vec4 custom_background_color: source_color = vec4(1.0, 1.0, 1.0, 1.0); // Customizable color
+uniform float background_alpha: hint_range(0.0, 1.0) = 0.1; // Alpha of the circular mask
 uniform float cone_scale = 1.0; // Scaling factor, I don't recommed setting a value lower than 0.1
 
 void fragment() {
@@ -30,10 +33,11 @@ void fragment() {
 
     // Adjust circle radius based on scale
     float scaled_circle_radius = circle_radius * cone_scale;
-
+	float scaled_little_circle_radius = little_circle_radius * cone_scale;
     // Circular mask
     float within_circle = step(radius, scaled_circle_radius);
-
+	float within_little_circle = step(radius, scaled_little_circle_radius);
+	
     // Inverted fade effect (center is fully visible, edges are transparent)
     float fade = smoothstep(0.0, 1.0, (radius / cone_scale) * fade_intensity); // Adjust fade based on scale
 
@@ -57,4 +61,10 @@ void fragment() {
 
     // Combine color and outline
     COLOR = mix(color, outline_color, outline_color.a);
+	
+	vec4 bg_color = vec4(custom_background_color.rgb, background_alpha * (1.0 - within_cone) * within_circle + background_alpha * (1.0-within_circle) - background_alpha * within_little_circle); // Custom color
+    //vec4 outline_color = vec4(custom_color.rgb, combined_outline * fade * within_cone * within_circle); // Custom color outline
+
+    // Combine color and outline
+    COLOR = mix(bg_color, outline_color, outline_color.a);
 }

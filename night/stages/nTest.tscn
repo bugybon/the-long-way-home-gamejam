@@ -14,13 +14,16 @@ position = Vector2(-1, 0)
 [node name="Enemies" type="Node" parent="." unique_id=941777930]
 
 [node name="Dummy3" parent="Enemies" unique_id=1019805022 instance=ExtResource("1_i3hg0")]
+visible = false
 position = Vector2(215, 89)
 collision_layer = 2
 
 [node name="Dummy" parent="Enemies" unique_id=572297760 instance=ExtResource("1_i3hg0")]
+visible = false
 position = Vector2(146, -2)
 collision_layer = 2
 
 [node name="Dummy2" parent="Enemies" unique_id=511736859 instance=ExtResource("1_i3hg0")]
+visible = false
 position = Vector2(205, -99)
 collision_layer = 2
