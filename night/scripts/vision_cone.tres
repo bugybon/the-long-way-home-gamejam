@@ -6,12 +6,12 @@
 shader = ExtResource("1_o88l1")
 shader_parameter/cone_angle = 62.73500297665262
 shader_parameter/start_angle = 0.0
-shader_parameter/fade_intensity = 4.0
+shader_parameter/fade_intensity = 3.2910001563225
 shader_parameter/circle_radius = 0.298000014155
 shader_parameter/little_circle_radius = 0.0250000011875
 shader_parameter/inner_circle_alpha = 0.55600002641
 shader_parameter/outline_thickness = 0.0
-shader_parameter/custom_color = Color(0, 0, 0, 1)
-shader_parameter/custom_background_color = Color(0, 0, 0, 1)
-shader_parameter/background_alpha = 0.6590000313025
+shader_parameter/custom_color = Color(0, 0, 0.18039216, 1)
+shader_parameter/custom_background_color = Color(0, 0, 0.18039216, 1)
+shader_parameter/background_alpha = 0.5570000264575
 shader_parameter/cone_scale = 1.0

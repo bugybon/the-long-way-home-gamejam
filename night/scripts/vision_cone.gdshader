@@ -3,7 +3,7 @@ render_mode unshaded;
 
 uniform float cone_angle: hint_range(0.1, 360.0) = 90; // Angle in degrees
 uniform float start_angle: hint_range(0.0, 360.0) = 270.0; // Start angle in degrees
-uniform float fade_intensity: hint_range(0.0, 4.0) = 3.0; // Controls fade strength
+uniform float fade_intensity: hint_range(0.0, 10.0) = 3.0; // Controls fade strength
 uniform float circle_radius: hint_range(0.0, 1.0) = 0.5; // Radius of the circular mask
 uniform float little_circle_radius: hint_range(0.0, 1.0) = 0.1; // Radius of the circular mask
 uniform float inner_circle_alpha: hint_range(0.0, 1.0) = 0.1; // Alpha of the circular mask

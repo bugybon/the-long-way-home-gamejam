@@ -243,6 +243,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_8321d")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2DVision" unique_id=773781243]
+visible = false
 position = Vector2(0, 9)
 polygon = PackedVector2Array(257, -165, 290, -90, 299, -13, 288, 79, 256, 147, 20, 6, 20, -24)
 
