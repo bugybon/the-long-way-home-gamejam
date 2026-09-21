@@ -44,8 +44,11 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("attack"):
-		weapons.get_children().map(func (el): el.attack_animation())
+	if Input.is_action_just_pressed("attack_melee"):
+		weapons.get_children().map(func (el): el.melee_attack_animation())
+	
+	if Input.is_action_just_pressed("attack_ranged"):
+		weapons.get_children().map(func (el): el.ranged_attack_animation())
 
 
 func _on_area_2d_vision_area_entered(area: Area2D) -> void:
