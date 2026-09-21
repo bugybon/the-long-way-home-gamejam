@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ddt23drn6jn2i" path="res://night/scripts/player.gd" id="1_gndvh"]
 [ext_resource type="Texture2D" uid="uid://lhu5m2aou8v6" path="res://icon.svg" id="2_gt8j4"]
 [ext_resource type="PackedScene" uid="uid://ddye1msqvpgfc" path="res://night/objects/meleeWeaponDummy.tscn" id="3_5ruyk"]
+[ext_resource type="Material" uid="uid://vgkq4qps4dbe" path="res://night/scripts/vision_cone.tres" id="4_883gh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6vqvp"]
 region = Rect2(0, 48, 16, 16)
@@ -175,10 +176,11 @@ radius = 8.0
 height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8321d"]
-radius = 20.0
+radius = 26.019224
 
 [node name="Player" type="CharacterBody2D" unique_id=1293946833]
 y_sort_enabled = true
+position = Vector2(0, 7)
 motion_mode = 1
 script = ExtResource("1_gndvh")
 max_health = 50
@@ -233,14 +235,27 @@ position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_8321d")
 
 [node name="Area2DVision" type="Area2D" parent="." unique_id=606124140]
+position = Vector2(0, -8)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DVision" unique_id=1117769102]
-position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_8321d")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2DVision" unique_id=773781243]
-polygon = PackedVector2Array(256, -160, 256, 156, 0, -1, 0, -16)
+position = Vector2(0, 9)
+polygon = PackedVector2Array(257, -165, 290, -90, 299, -13, 288, 79, 256, 147, 0, -1, 0, -16)
+
+[node name="Sprite2D" type="ColorRect" parent="Area2DVision" unique_id=660716948]
+material = ExtResource("4_883gh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="area_entered" from="Weapons/MeleeWeaponDummy" to="." method="_on_melee_weapon_area_entered"]
 [connection signal="area_entered" from="Area2DVision" to="." method="_on_area_2d_vision_area_entered"]
