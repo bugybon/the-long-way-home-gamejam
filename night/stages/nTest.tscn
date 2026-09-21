@@ -5,11 +5,15 @@
 
 [node name="Root" type="Node2D" unique_id=566914692]
 
-[node name="Dummy" parent="." unique_id=1019805022 instance=ExtResource("1_i3hg0")]
-position = Vector2(54, -1)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1937563628]
 zoom = Vector2(2, 2)
 
 [node name="Player" parent="." unique_id=1293946833 instance=ExtResource("1_1yu7x")]
 position = Vector2(-1, 0)
+
+[node name="Enemies" type="Node" parent="." unique_id=941777930]
+
+[node name="Dummy" parent="Enemies" unique_id=1019805022 instance=ExtResource("1_i3hg0")]
+visible = false
+position = Vector2(146, -2)
+collision_layer = 2

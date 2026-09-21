@@ -3,6 +3,7 @@ extends CombatEntity
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var weapons: Node = $Weapons
 @onready var attacks: Node = $Attacks
+@onready var area_2d_vision: Area2D = $Area2DVision
 var attack_directions: Dictionary[String,Node] = {}
 @export var speed = 100
 
@@ -37,6 +38,7 @@ func get_input():
 	#print(input_direction, state + "_" + direction)
 	#animated_sprite_2d.play(state + "_" + direction)
 	weapons.rotation = weapons.global_position.angle_to_point(attack_directions[direction].global_position)
+	area_2d_vision.rotation = area_2d_vision.global_position.angle_to_point(attack_directions[direction].global_position)
 
 func _physics_process(delta):
 	get_input()
@@ -44,3 +46,15 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("attack"):
 		weapons.get_children().map(func (el): el.attack_animation())
+
+
+func _on_area_2d_vision_area_entered(area: Area2D) -> void:
+	var target = area.get_parent()  # the Hurtbox's parent is the entity itself
+	if target is CombatEntity:
+		target.visible = true
+
+
+func _on_area_2d_vision_area_exited(area: Area2D) -> void:
+	var target = area.get_parent()  # the Hurtbox's parent is the entity itself
+	if target is CombatEntity:
+		target.visible = false
