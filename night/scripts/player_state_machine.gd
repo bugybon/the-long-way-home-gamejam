@@ -21,11 +21,11 @@ func _input(event:InputEvent) -> void:
 		if Input.is_action_just_pressed("attack_melee"):
 			state = states.melee
 			attack_finished = false
-			parent.weapons.get_children().map(func (el): el.melee_attack_animation())
+			#parent.weapons.get_children().map(func (el): el.melee_attack_animation())
 		elif Input.is_action_just_pressed("attack_ranged"):
 			state = states.ranged
 			attack_finished = false
-			parent.weapons.get_children().map(func (el): el.ranged_attack_animation())
+			#parent.weapons.get_children().map(func (el): el.ranged_attack_animation())
 
 func _state_logic(delta: float) -> void:
 	current_state.text = states.find_key(state)

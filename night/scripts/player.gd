@@ -36,12 +36,13 @@ func _get_direction():
 
 func apply_movement():
 	velocity = input_direction * speed
-	transform_direction(input_direction)
+	#transform_direction(input_direction)
 	#print(input_direction, state + "_" + direction)
 	#animated_sprite_2d.play(state + "_" + direction)
-	weapons.rotation = weapons.global_position.angle_to_point(attack_directions[direction].global_position)
-	area_2d_vision.rotation = area_2d_vision.global_position.angle_to_point(attack_directions[direction].global_position)
-
+	#weapons.rotation = weapons.global_position.angle_to_point(attack_directions[direction].global_position)
+	#area_2d_vision.rotation = area_2d_vision.global_position.angle_to_point(attack_directions[direction].global_position)
+	weapons.look_at(get_global_mouse_position())
+	area_2d_vision.look_at(get_global_mouse_position())
 
 func _on_area_2d_vision_area_entered(area: Area2D) -> void:
 	var target = area.get_parent()  # the Hurtbox's parent is the entity itself

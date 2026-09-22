@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://chceeylbqupjf"]
+
+[ext_resource type="Script" uid="uid://b11a4rtme2qpy" path="res://night/scripts/area_attack.gd" id="1_mecyp"]
+[ext_resource type="Texture2D" uid="uid://lhu5m2aou8v6" path="res://icon.svg" id="2_qwp2d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8321d"]
+size = Vector2(12, 12)
+
+[sub_resource type="Animation" id="Animation_mecyp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qwp2d"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.76, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.14515203), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3byl"]
+_data = {
+&"RESET": SubResource("Animation_mecyp"),
+&"attack": SubResource("Animation_qwp2d")
+}
+
+[node name="AreaAttack" type="Area2D" unique_id=58544298]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_mecyp")
+damage = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1453477834]
+modulate = Color(0.10980392, 0.15686275, 1, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_qwp2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1852835078]
+shape = SubResource("RectangleShape2D_8321d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1356849670]
+libraries/ = SubResource("AnimationLibrary_f3byl")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

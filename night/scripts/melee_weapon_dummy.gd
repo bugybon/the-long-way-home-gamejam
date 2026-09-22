@@ -1,14 +1,21 @@
 extends Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var melee_damage:int
-
+var area_effect
+var area_instance
 signal attack_finished
+
+func _ready() -> void:
+	area_effect = preload("res://night/objects/area_attack.tscn")
 
 func melee_attack_animation() -> void:
 	animation_player.play("melee_attack")
 	
 func ranged_attack_animation() -> void:
 	animation_player.play("ranged_attack")
+	area_instance = area_effect.instantiate()
+	area_instance.position = get_global_mouse_position()
+	get_tree().current_scene.add_child(area_instance)
 
 func _on_area_entered(area: Area2D) -> void:
 	var target = area.get_parent()  # the Hurtbox's parent is the entity itself
