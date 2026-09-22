@@ -1,6 +1,14 @@
 [background arg="res://icon.svg" fade="1.0" wait="true"]
 join main center
+main: nqkakuv dialog yippie
+[wait_input hide_text="false"]
+main: oshte yap
+[wait time="1.0"]
+join kolejka center
+kolejka: neshto sa obajda
 - to be
-	main: yippie
+	bqh
 - not to be
-	main: ded
+	main: ne bqh
+[background arg="res://assets/trust-no-one-main-menu.png" fade="0.0"]
+main: sa fona e drug shtoto shto ne
