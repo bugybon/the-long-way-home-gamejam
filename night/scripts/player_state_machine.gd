@@ -2,6 +2,7 @@ extends StateMachine
 
 var direction = "front"
 var attack_finished:bool
+@onready var current_state: Label = $"../CurrentState"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,9 +28,11 @@ func _input(event:InputEvent) -> void:
 			parent.weapons.get_children().map(func (el): el.ranged_attack_animation())
 
 func _state_logic(delta: float) -> void:
-	#if state != states.melee:
-	parent._get_direction()
-	parent.apply_movement()
+	current_state.text = states.find_key(state)
+	parent.velocity = Vector2.ZERO
+	if ![states.ranged,states.melee].has(state):
+		parent._get_direction()
+		parent.apply_movement()
 	parent.move_and_slide()
 
 func _get_transition(delta: float) -> Variant:
@@ -49,10 +52,8 @@ func _get_transition(delta: float) -> Variant:
 func _enter_state(new_state:Variant, old_state:Variant) -> void:
 	match new_state:
 		states.melee:
-			parent.velocity *= 0.2
 			parent.weapon.melee_attack_animation()
 		states.ranged:
-			parent.velocity = Vector2.ZERO
 			parent.weapon.ranged_attack_animation()
 
 func _exit_state(old_state:Variant,new_state:Variant) -> void:

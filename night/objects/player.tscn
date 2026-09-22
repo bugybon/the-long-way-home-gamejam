@@ -260,6 +260,12 @@ grow_vertical = 2
 pivot_offset = Vector2(500, 500)
 metadata/_edit_use_anchors_ = true
 
+[node name="CurrentState" type="Label" parent="." unique_id=2012125199]
+z_index = 2
+offset_right = 40.0
+offset_bottom = 23.0
+text = "test"
+
 [node name="StateMachine" type="Node" parent="." unique_id=2060159834]
 script = ExtResource("5_quanh")
 
