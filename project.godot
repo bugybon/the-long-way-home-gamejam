@@ -23,6 +23,7 @@ Event="*uid://hy2r5a8xtmn3"
 [dialogic]
 
 directories/dch_directory={
+"kolejka": "res://day/characters/kolejka.dch",
 "main": "res://day/characters/main.dch"
 }
 directories/dtl_directory={
@@ -30,10 +31,12 @@ directories/dtl_directory={
 }
 layout/style_directory={
 "": "res://day/styles/default.tres",
+"2choices": "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/2choices.tres",
+"3choices": "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/3choices.tres",
 "default": "res://day/styles/default.tres"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://day/styles/default.tres"]
+layout/style_list=["res://day/styles/default.tres", "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/2choices.tres", "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/3choices.tres"]
 layout/default_style="res://day/styles/default.tres"
 variables={
 "misery": 0,
