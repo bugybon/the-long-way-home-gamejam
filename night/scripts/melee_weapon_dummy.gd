@@ -17,4 +17,5 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	attack_finished.emit()
+	if anim_name == "melee_attack" or anim_name == "ranged_attack":
+		attack_finished.emit()

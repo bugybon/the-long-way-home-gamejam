@@ -58,6 +58,5 @@ func _enter_state(new_state:Variant, old_state:Variant) -> void:
 func _exit_state(old_state:Variant,new_state:Variant) -> void:
 	pass
 	
-func _on_weapon_animation_finished(anim_name: String) -> void:
-	if anim_name == "attack":
-		attack_finished = true
+func _on_weapon_animation_finished() -> void:
+	attack_finished = true
