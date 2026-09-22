@@ -4,9 +4,9 @@
 
 [resource]
 shader = ExtResource("1_o88l1")
-shader_parameter/cone_angle = 62.73500297665262
+shader_parameter/cone_angle = 131.48700624237262
 shader_parameter/start_angle = 0.0
-shader_parameter/fade_intensity = 3.2910001563225
+shader_parameter/fade_intensity = 3.9490001875775
 shader_parameter/circle_radius = 0.298000014155
 shader_parameter/little_circle_radius = 0.0250000011875
 shader_parameter/inner_circle_alpha = 0.55600002641
