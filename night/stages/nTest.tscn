@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d231vto7r" path="res://night/objects/player.tscn" id="1_1yu7x"]
 [ext_resource type="PackedScene" uid="uid://dn3xc0dryuqa" path="res://night/objects/dummy.tscn" id="1_i3hg0"]
+[ext_resource type="PackedScene" uid="uid://cknjrpp7wgkrh" path="res://night/objects/enemy.tscn" id="3_p2yg3"]
 
 [node name="Root" type="Node2D" unique_id=566914692]
 
@@ -27,3 +28,6 @@ collision_layer = 2
 visible = false
 position = Vector2(205, -99)
 collision_layer = 2
+
+[node name="Enemy" parent="Enemies" unique_id=863196679 instance=ExtResource("3_p2yg3")]
+position = Vector2(-37, -51)

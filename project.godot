@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="The Long Way Home"
-run/main_scene="uid://r405t0gl8qrt"
+run/main_scene="uid://o2e4e1mdhr8c"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
