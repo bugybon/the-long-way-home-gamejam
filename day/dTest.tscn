@@ -1,3 +1,12 @@
 [gd_scene format=3 uid="uid://r405t0gl8qrt"]
 
+[ext_resource type="Script" uid="uid://de0qhx73ye0of" path="res://day/d_test.gd" id="1_ymnkg"]
+
 [node name="Root" type="Node2D" unique_id=380906587]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=461343021]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=741072655]
+rotation = -2.2794
+transform = Transform2D(-0.65077436, -0.7592712, 0.7592712, -0.65077436, 0, 0)
+script = ExtResource("1_ymnkg")
