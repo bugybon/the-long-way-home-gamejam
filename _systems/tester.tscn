@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c7aaig6kpmcf2"]
+
+[ext_resource type="Script" uid="uid://c86tpnn2fa2xj" path="res://_systems/healthful.gd" id="1_1ll28"]
+[ext_resource type="Script" uid="uid://ddt41kqe58cuy" path="res://_systems/interactful.gd" id="2_5p6cj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypnm0"]
+
+[node name="Tester" type="Node2D" unique_id=2001106251]
+
+[node name="Health" type="Node" parent="." unique_id=1254902915]
+script = ExtResource("1_1ll28")
+metadata/_custom_type_script = "uid://c86tpnn2fa2xj"
+
+[node name="Interaction" type="Area2D" parent="." unique_id=957074880]
+script = ExtResource("2_5p6cj")
+metadata/_custom_type_script = "uid://ddt41kqe58cuy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction" unique_id=1069484309]
+shape = SubResource("RectangleShape2D_ypnm0")
+
+[connection signal="area_entered" from="Interaction" to="Interaction" method="_on_area_entered"]
