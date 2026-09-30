@@ -134,6 +134,7 @@ _data = {
 
 [node name="MeleeWeaponDummy" type="Area2D" unique_id=1610113695]
 rotation = 1.5707964
+scale = Vector2(-1, 1)
 collision_layer = 0
 collision_mask = 2
 monitorable = false

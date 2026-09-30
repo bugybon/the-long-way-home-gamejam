@@ -1,4 +1,4 @@
-extends StateMachine
+extends OldStateMachine
 
 var direction = "front"
 var attack_finished:bool

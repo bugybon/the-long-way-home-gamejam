@@ -4,7 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://lhu5m2aou8v6" path="res://icon.svg" id="2_gt8j4"]
 [ext_resource type="PackedScene" uid="uid://ddye1msqvpgfc" path="res://night/objects/meleeWeaponDummy.tscn" id="3_5ruyk"]
 [ext_resource type="Material" uid="uid://vgkq4qps4dbe" path="res://night/scripts/vision_cone.tres" id="4_883gh"]
-[ext_resource type="Script" uid="uid://c8b8ophwgy5ff" path="res://night/scripts/player_state_machine.gd" id="5_quanh"]
+[ext_resource type="Script" uid="uid://c8b8ophwgy5ff" path="res://night/scripts/states/old_player_state_machine.gd" id="5_quanh"]
+[ext_resource type="Script" uid="uid://d0ith6lbeb6pt" path="res://night/scripts/states/state_machine.gd" id="6_6f78a"]
+[ext_resource type="Script" uid="uid://b7vynytik4in8" path="res://night/scripts/states/player_idle_state.gd" id="7_35r2f"]
+[ext_resource type="Script" uid="uid://bdjoqnxvrgqyu" path="res://night/scripts/states/player_melee_state.gd" id="8_5ien1"]
+[ext_resource type="Script" uid="uid://dk7wblgaq2yov" path="res://night/scripts/states/player_moving_state.gd" id="8_a28px"]
+[ext_resource type="Script" uid="uid://cfr82d26i2w2v" path="res://night/scripts/states/player_ranged_state.gd" id="10_mc0j0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6vqvp"]
 region = Rect2(0, 48, 16, 16)
@@ -266,8 +271,24 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "test"
 
-[node name="StateMachine" type="Node" parent="." unique_id=2060159834]
+[node name="OldStateMachine" type="Node" parent="." unique_id=2060159834]
+process_mode = 4
 script = ExtResource("5_quanh")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1718607296]
+script = ExtResource("6_6f78a")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=2005547923]
+script = ExtResource("7_35r2f")
+
+[node name="Moving" type="Node" parent="StateMachine" unique_id=947939527]
+script = ExtResource("8_a28px")
+
+[node name="Melee" type="Node" parent="StateMachine" unique_id=1511410563]
+script = ExtResource("8_5ien1")
+
+[node name="Ranged" type="Node" parent="StateMachine" unique_id=1332376898]
+script = ExtResource("10_mc0j0")
 
 [connection signal="area_entered" from="Weapons/MeleeWeaponDummy" to="." method="_on_melee_weapon_area_entered"]
 [connection signal="area_entered" from="Area2DVision" to="." method="_on_area_2d_vision_area_entered"]

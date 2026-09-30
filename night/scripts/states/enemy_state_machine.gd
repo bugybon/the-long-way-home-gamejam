@@ -1,4 +1,4 @@
-extends StateMachine
+extends OldStateMachine
 
 @onready var current_state: Label = $"../CurrentState"
 @onready var player: CombatEntity = $"../../../Player"

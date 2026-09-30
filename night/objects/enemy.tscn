@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqn5tm7ygyfsk" path="res://night/scripts/enemy.gd" id="1_cvaxk"]
 [ext_resource type="Texture2D" uid="uid://lhu5m2aou8v6" path="res://icon.svg" id="2_5qj54"]
-[ext_resource type="Script" uid="uid://dleievrguirdq" path="res://night/scripts/enemy_state_machine.gd" id="3_yri2c"]
+[ext_resource type="Script" uid="uid://dleievrguirdq" path="res://night/scripts/states/enemy_state_machine.gd" id="3_yri2c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvaxk"]
 size = Vector2(14, 14)

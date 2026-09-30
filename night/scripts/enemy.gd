@@ -2,7 +2,7 @@ extends CombatEntity
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var speed = 10
-@export var state_machine: StateMachine
+@export var state_machine: OldStateMachine
 
 
 func _ready() -> void:

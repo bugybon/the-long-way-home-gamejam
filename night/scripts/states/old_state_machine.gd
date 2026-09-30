@@ -1,5 +1,5 @@
 extends Node
-class_name StateMachine
+class_name OldStateMachine
 
 var state:Variant = null : set = set_state
 var previous_state:Variant = null

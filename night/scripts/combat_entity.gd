@@ -4,7 +4,6 @@ extends CharacterBody2D
 
 signal health_changed(new_health:int, max_health:int)
 signal died()
-
 @export var max_health:int
 var current_health:int
 

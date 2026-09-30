@@ -8,6 +8,9 @@ extends CombatEntity
 @onready var area_2d_vision: Area2D = $Area2DVision
 var attack_directions: Dictionary[String,Node] = {}
 @export var speed = 100
+@onready var current_state: Label = $CurrentState
+
+signal attack_finished
 
 var direction = "front"
 var input_direction: Vector2
@@ -33,6 +36,7 @@ func transform_direction(input_direction) -> void:
 
 func _get_direction():
 	input_direction = Input.get_vector("left", "right", "up", "down").normalized()
+	return input_direction
 
 func apply_movement():
 	velocity = input_direction * speed
