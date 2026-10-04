@@ -42,3 +42,7 @@ func heal(amount: int) -> void:
 
 func set_to(amount: int) -> void:
 	value = amount
+
+
+func _on_interaction_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

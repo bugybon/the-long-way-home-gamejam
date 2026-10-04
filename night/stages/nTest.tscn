@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://d231vto7r" path="res://night/objects/player.tscn" id="1_1yu7x"]
 [ext_resource type="PackedScene" uid="uid://dn3xc0dryuqa" path="res://night/objects/dummy.tscn" id="1_i3hg0"]
 [ext_resource type="PackedScene" uid="uid://cknjrpp7wgkrh" path="res://night/objects/enemy.tscn" id="3_p2yg3"]
+[ext_resource type="Script" uid="uid://ddt41kqe58cuy" path="res://_systems/interactful.gd" id="4_3tfsl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypnm0"]
+size = Vector2(256, 323)
 
 [node name="Root" type="Node2D" unique_id=566914692]
 
@@ -31,3 +35,13 @@ collision_layer = 2
 
 [node name="Enemy" parent="Enemies" unique_id=863196679 instance=ExtResource("3_p2yg3")]
 position = Vector2(-37, -51)
+
+[node name="InteractionArea2D" type="Area2D" parent="." unique_id=866024177]
+script = ExtResource("4_3tfsl")
+metadata/_custom_type_script = "uid://ddt41kqe58cuy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D" unique_id=2049898276]
+position = Vector2(-160, -0.5)
+shape = SubResource("RectangleShape2D_ypnm0")
+
+[connection signal="area_exited" from="InteractionArea2D" to="InteractionArea2D" method="_on_area_exited"]

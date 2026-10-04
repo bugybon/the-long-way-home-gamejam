@@ -189,6 +189,7 @@ y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_gndvh")
 max_health = 50
+metadata/the_player = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1924558833]
 texture_filter = 1
@@ -232,9 +233,6 @@ y_sort_enabled = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=977521155]
 position = Vector2(-4.7683716e-07, 7)
-collision_layer = 0
-collision_mask = 2
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=335223992]
 position = Vector2(0, -8)
