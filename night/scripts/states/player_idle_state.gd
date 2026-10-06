@@ -10,9 +10,9 @@ func physics_update(_delta: float) -> void:
 	player.apply_movement()
 	player.move_and_slide()
 
-	if Input.is_action_just_pressed("attack_melee"):
-		finished.emit(MELEE)
-	elif Input.is_action_just_pressed("attack_ranged"):
-		finished.emit(RANGED)
-	elif input_direction != Vector2.ZERO:
-		finished.emit(MOVING)
+	#if Input.is_action_just_pressed("attack_melee"):
+		#finished.emit(MELEE)
+	#elif Input.is_action_just_pressed("attack_ranged"):
+		#finished.emit(RANGED)
+	#elif input_direction != Vector2.ZERO:
+		#finished.emit(MOVING)

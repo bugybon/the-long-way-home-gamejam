@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ddye1msqvpgfc" path="res://night/objects/meleeWeaponDummy.tscn" id="3_5ruyk"]
 [ext_resource type="Material" uid="uid://vgkq4qps4dbe" path="res://night/scripts/vision_cone.tres" id="4_883gh"]
 [ext_resource type="Script" uid="uid://c8b8ophwgy5ff" path="res://night/scripts/states/old_player_state_machine.gd" id="5_quanh"]
-[ext_resource type="Script" uid="uid://d0ith6lbeb6pt" path="res://night/scripts/states/state_machine.gd" id="6_6f78a"]
+[ext_resource type="Script" uid="uid://c464kpvp2olvu" path="res://night/scripts/states/player_state_machine.gd" id="6_5ien1"]
 [ext_resource type="Script" uid="uid://b7vynytik4in8" path="res://night/scripts/states/player_idle_state.gd" id="7_35r2f"]
 [ext_resource type="Script" uid="uid://bdjoqnxvrgqyu" path="res://night/scripts/states/player_melee_state.gd" id="8_5ien1"]
 [ext_resource type="Script" uid="uid://dk7wblgaq2yov" path="res://night/scripts/states/player_moving_state.gd" id="8_a28px"]
@@ -273,8 +273,9 @@ text = "test"
 process_mode = 4
 script = ExtResource("5_quanh")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1718607296]
-script = ExtResource("6_6f78a")
+[node name="StateMachine" type="Node" parent="." unique_id=1718607296 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("6_5ien1")
+initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=2005547923]
 script = ExtResource("7_35r2f")
